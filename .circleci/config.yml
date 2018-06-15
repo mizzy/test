@@ -1,14 +1,14 @@
 version: 2
 jobs:
-  build:
+  one:
     docker:
       - image: circleci/ruby:2.4.1
     steps:
       - checkout
       - run: echo "A first hello"
-  build:
+  two:
     docker:
       - image: circleci/ruby:2.4.1
     steps:
       - checkout
-      - run: echo "A first hello"
+      - run: echo "A second hello"
