@@ -17,8 +17,8 @@ jobs:
     - name: Setup Terraform
       run: >-
         git clone https://github.com/tfutils/tfenv.git ~/.tfenv
-        export PATH="$HOME/.tfenv/bin:$PATH"
-        tfenv install
+        && export PATH="$HOME/.tfenv/bin:$PATH"
+        && tfenv install
 
     - name: Setup tfnotify
       env:
