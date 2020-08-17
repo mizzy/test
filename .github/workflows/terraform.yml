@@ -1,0 +1,34 @@
+name: terraform
+on: push
+
+jobs:
+  terraform:
+    name: 'Terraform'
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Terraform
+      run: >-
+        git clone https://github.com/tfutils/tfenv.git ~/.tfenv
+        export PATH="$HOME/.tfenv/bin:$PATH"
+        tfenv install
+
+    - name: Setup tfnotify
+      env:
+        VERSION: 0.7.0
+      run: >-
+        curl -fsSLo tfnotify.tar.gz
+        https://github.com/mercari/tfnotify/releases/download/v${VERSION}/tfnotify_linux_amd64.tar.gz
+        && sudo tar -xf tfnotify.tar.gz -C /usr/local/bin tfnotify
+
+    - name: Terraform Format
+      run: terraform fmt -check -diff -recursive | tfnotify fmt
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
