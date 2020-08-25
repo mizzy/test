@@ -14,6 +14,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
+    - name: curl ifconfig.me
+      run: curl ifconfig.me
+
     - name: Setup Terraform
       run: >-
         git clone https://github.com/tfutils/tfenv.git ~/.tfenv
