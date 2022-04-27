@@ -2,7 +2,7 @@ name: terraform
 on:
   pull_request:
     paths:
-      - terraform/**.tf
+      - terraform/**.t
 
 jobs:
   terraform:
