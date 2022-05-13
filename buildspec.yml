@@ -16,5 +16,6 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      - export IMAGE_TAG=foobar.`date`
+      - IMAGE_TAG=foobar.`date`
+      - export IMAGE_TAG
 
