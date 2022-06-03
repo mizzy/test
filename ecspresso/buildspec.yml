@@ -13,9 +13,13 @@ phases:
   pre_build:
     commands:
       - tfenv install
+      - pushd terraform
+      - ls -a
+      - popd
   build:
     commands:
-      - echo build
+      - pushd ecspresso
+      - ls -a
   post_build:
     commands:
       - echo Build completed on `date`
