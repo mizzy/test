@@ -6,10 +6,13 @@ env:
 phases:
   install:
     commands:
-      - echo install
+      - curl -sLO https://github.com/kayac/ecspresso/releases/download/v1.7.11/ecspresso_1.7.11_linux_amd64.tar.gz
+      - tar -C /usr/local/bin -zxf ecspresso_1.7.11_linux_amd64.tar.gz ecspresso
+      - git clone https://github.com/tfutils/tfenv.git ~/.tfenv
+      - ln -s ~/.tfenv/bin/* /usr/local/bin
   pre_build:
     commands:
-      - echo pre_build 
+      - tfenv install
   build:
     commands:
       - echo build
