@@ -15,4 +15,4 @@ jobs:
     #    working-directory: ${{ inputs.working_directory }}
     steps:
       - run: pwd
-        working-directory: ecspresso
+        working-directory: ./ecspresso
