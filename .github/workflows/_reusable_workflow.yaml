@@ -10,9 +10,10 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    #defaults:
-    #  run:
+    defaults:
+      run:
+        working-directory: ecspresso
     #    working-directory: ${{ inputs.working_directory }}
     steps:
+      - uses: actions/checkout@v3
       - run: ls
-        #working-directory: ./ecspresso
