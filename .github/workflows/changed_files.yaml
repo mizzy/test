@@ -15,8 +15,8 @@ jobs:
     steps:
       - run: echo ${{ needs.changed-files.outputs.changed-files }}
 
-      - if: contains(needs.changed-files.outputs.changed-files, '.yaml')
+      - if: if needs.changed-files.outputs.changed-files != ''
         run: echo "YAML files detected"
 
-      - if: "!contains(needs.changed-files.outputs.changed-files, '.yaml')"
+      - if: if needs.changed-files.outputs.changed-files == ''
         run: echo "YAML files not detected"
