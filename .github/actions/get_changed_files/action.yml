@@ -32,6 +32,6 @@ runs:
         changed_files=$(git diff $SOURCE_TARGET $DESTINATION_TARGET --name-only --no-color | grep -e "$pattern" || :)
 
         # Remove empty lines and lines start with `./`
-        changed_files=$(echo "$changed_files" | grep -v -e '^\s*$' | sed -e 's/^\.\///g')
+        changed_files=$(echo "$changed_files" | grep -v -e '^\s*$' | sed -e 's/^\.\///g' || :)
   
         echo "::set-output name=changed_files:$changed_files"
