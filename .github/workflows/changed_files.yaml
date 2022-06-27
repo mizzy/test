@@ -14,3 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo ${{ needs.changed-files.outputs.changed-files }}
+
+      - if: contains(needs.changed-files.outputs.changed-files, '.yaml')
+        run: echo "YAML files detected"
+
+      - if: "!contains(needs.changed-files.outputs.changed-files, '.yaml')"
+        run: echo "YAML files not detected"
