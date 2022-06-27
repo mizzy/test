@@ -12,7 +12,7 @@ jobs:
       - id: changed-files
         uses: ./.github/actions/get_changed_files
         with:
-          pattern: tfmigrate/
+          pattern: .sh
 
       - run: echo ${{ steps.changed-files.outputs.changed-files }}
 
