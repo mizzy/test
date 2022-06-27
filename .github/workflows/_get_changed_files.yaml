@@ -45,6 +45,6 @@ jobs:
           # Remove empty lines and lines start with `./`
           changed_files=$(echo "$changed_files" | grep -v -e '^\s*$' | sed -e 's/^\.\///g' || :)
         
-          changed_files=$(echo $changed_files | tr '\n' ' ')
+          changed_files=$(echo $changed_files | tr '\n' ' ' | sed 's/^ *\| *$//')
   
           echo "::set-output name=changed-files::$changed_files"
