@@ -1,3 +1,3 @@
 data "aws_s3_bucket" "foo" {
-   bucket  = "foo"
+  bucket = "foo"
 }
