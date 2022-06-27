@@ -1,0 +1,44 @@
+name: Detect changed files
+
+description: Detect changed files
+
+inputs:
+  pattern:
+    description: Pattern to match changed files
+    required: true
+    type: string
+outputs:
+  changed-files:
+    description: Changed files
+    value: ${{ steps.changed-files.outputs.changed-files }}
+
+runs:
+  using: composite
+  steps:
+    - name: Unshallow git
+      shell: bash
+      run: git fetch --prune --unshallow
+    - name: Get changed files
+      id: changed-files
+      shell: bash
+      run: |
+        pattern=${{ inputs.pattern }}
+  
+        CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+
+        if [[ "$CURRENT_BRANCH" == "master" || "$CURRENT_BRANCH" == "develop" ]]; then
+          SOURCE_TARGET="HEAD^"
+          DESTINATION_TARGET="HEAD"
+        else
+          SOURCE_TARGET="origin/${GITHUB_BASE_REF}"
+          DESTINATION_TARGET="HEAD"
+        fi
+
+        changed_files=$(git diff $SOURCE_TARGET $DESTINATION_TARGET --name-only --no-color | grep -e "$pattern" || :)
+
+        # Remove empty lines and lines start with `./`
+        changed_files=$(echo "$changed_files" | grep -v -e '^\s*$' | sed -e 's/^\.\///g' || :)
+        
+        changed_files=$(echo $changed_files | tr '\n' ' ')
+  
+        echo "::set-output name=changed-files::$changed_files"
