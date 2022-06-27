@@ -10,7 +10,7 @@ on:
     outputs:
       changed-files:
         description: Changed files
-        value: ${{ steps.changed-files.outputs.changed-files }}
+        value: ${{ jobs.changed-files.outputs.changed-files }}
 
 jobs:
   changed-files:
