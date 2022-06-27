@@ -7,6 +7,10 @@ inputs:
     description: Pattern to match changed files
     required: true
     type: string
+outputs:
+  changed-files:
+    description: Changed files
+    value: ${{ steps.changed-files.outputs.changed-files }}
 
 runs:
   using: composite
@@ -15,6 +19,7 @@ runs:
       shell: bash
       run: git fetch --prune --unshallow
     - name: Get changed files
+      id: changed-files
       shell: bash
       run: |
         pattern=${{ inputs.pattern }}
