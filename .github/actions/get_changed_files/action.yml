@@ -17,8 +17,6 @@ runs:
     - name: Get changed files
       shell: bash
       run: |
-        set -x
-
         pattern=${{ inputs.pattern }}
   
         CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
