@@ -8,7 +8,7 @@ jobs:
     uses: ./.github/workflows/_get_changed_files.yaml
 
   test:
-    needs: [test]
+    needs: [changed-files]
     runs-on: ubuntu-latest
     steps:
       - run: echo ${{ needs.changed-files.outputs.changed-files }}
