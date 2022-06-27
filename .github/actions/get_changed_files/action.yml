@@ -11,7 +11,11 @@ inputs:
 runs:
   using: composite
   steps:
-    - shell: bash
+    - name: Unshallow git
+      shell: bash
+      run: git fetch --prune --unshallow
+    - name: Get changed files
+      shell: bash
       run: |
         pattern=${{ inputs.pattern }}
   
