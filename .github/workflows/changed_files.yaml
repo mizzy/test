@@ -6,6 +6,8 @@ on:
 jobs:
   changed-files:
     uses: ./.github/workflows/_get_changed_files.yaml
+    with:
+      pattern: .yaml
 
   test:
     needs: [changed-files]
