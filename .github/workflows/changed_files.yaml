@@ -1,0 +1,16 @@
+name: changed files
+
+on:
+  pull_request:
+
+jobs:
+  changed-files:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          depth: 2
+      - id: changed-files
+        uses: ./.github/actions/get_changed_files
+        with:
+          pattern: "**/*.tf"
