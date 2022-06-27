@@ -16,7 +16,7 @@ jobs:
 
       - run: echo ${{ steps.changed-files.outputs.changed-files }}
 
-      - if: contains(steps.changed-files.outputs.changed-files, "tfmigrate/")
+      - if: contains(steps.changed-files.outputs.changed-files, 'tfmigrate/')
         run: echo "Contains tfmigrate"
 
 #      - if: !contains(steps.changed-files.outputs.changed-files, "tfmigrate/")
