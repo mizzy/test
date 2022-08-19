@@ -1,0 +1,10 @@
+name: test
+
+on:
+  pull_request:
+
+jobs:
+  test2:
+    uses: ./.github/workflows/_reusable_workflow.yaml
+    with:
+      working-directory: ecspresso
