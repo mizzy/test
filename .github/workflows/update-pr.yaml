@@ -14,6 +14,6 @@ jobs:
       run:
         shell: bash
     steps:
-      - run: gh api -X PUT "repos/mizzy/test/pulls/14/update-branch"
+      - run: gh api -X PUT "repos/{owner}/{repo}/pulls/16/update-branch"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
