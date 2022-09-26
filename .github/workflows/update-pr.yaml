@@ -14,4 +14,4 @@ jobs:
       run:
         shell: bash
     steps:
-      - run: gh help
+      - run: gh api -X PUT "repos/mizzy/test/pulls/14/update-branch"
