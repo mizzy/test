@@ -1,0 +1,27 @@
+name: Test GitHub App
+
+on: push
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Generate token
+      id: generate_token
+      uses: tibdex/github-app-token@v1
+      with:
+        app_id: ${{ secrets.GH_APP_ID }}
+        private_key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+
+    - uses: actions/checkout@v3
+
+    - name: Use token
+      run: |
+        echo "The generated token is masked: ${GH_TOKEN}"
+        gh api -X PUT "repos/{owner}/{repo}/pulls/16/update-branch"
+      env:
+        GH_TOKEN: ${{ steps.generate_token.outputs.token }}
