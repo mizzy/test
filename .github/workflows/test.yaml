@@ -10,8 +10,7 @@ jobs:
       - id: foo
         run: echo ::set-output name=foo::bar
     outputs:
-      foo:
-        value: steps.foo.outputs.foo
+      foo: steps.foo.outputs.foo
 
   job2:
     needs: [job1]
