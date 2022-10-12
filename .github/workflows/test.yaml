@@ -10,7 +10,7 @@ jobs:
       - id: foo
         run: echo foo=bar >> $GITHUB_ENV
     outputs:
-      foo: ${{ steps.foo.env.foo }}
+      foo: ${{ env.foo }}
 
   job2:
     needs: [job1]
