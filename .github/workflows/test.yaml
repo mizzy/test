@@ -7,7 +7,11 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ::set-output name=foo::bar
+      - id: foo
+        run: echo ::set-output name=foo::bar
+    outputs:
+      foo:
+        value: steps.foo.outputs.foo
 
   job2:
     needs: [job1]
