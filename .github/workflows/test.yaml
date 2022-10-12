@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: foo
-        run: echo ::set-output name=foo::bar
+        run: echo foo=bar >> $GITHUB_ENV
     outputs:
-      foo: ${{ steps.foo.outputs.foo }}
+      foo: ${{ steps.foo.env.foo }}
 
   job2:
     needs: [job1]
