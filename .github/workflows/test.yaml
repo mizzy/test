@@ -7,4 +7,10 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - run: echo foo
+      - run: echo ::set-output name=foo::bar
+
+  job2:
+    needs: [job1]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ needs.job1.outputs.foo }}
