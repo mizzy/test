@@ -35,3 +35,17 @@ jobs:
       run: terraform fmt -check -diff -recursive | tfnotify fmt
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Generate GitHub App token
+      id: generate_token
+      uses: tibdex/github-app-token@v1
+      with:
+        app_id: ${{ secrets.GH_APP_ID }}
+        private_key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+
+    - name: terraform plan
+      run: terraform plan
+      with:
+        working-directory: terraform
+      env:
+        GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
