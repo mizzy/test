@@ -39,4 +39,4 @@ jobs:
         terraform plan
       env:
         GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
-        GITHUB_OWNER: mizzy
+        GITHUB_OWNER: serverspec
