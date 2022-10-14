@@ -26,19 +26,6 @@ jobs:
         && export PATH="$HOME/.tfenv/bin:$PATH"
         && tfenv install
 
-    - name: Setup tfnotify
-      env:
-        VERSION: 0.7.0
-      run: >-
-        curl -fsSLo tfnotify.tar.gz
-        https://github.com/mercari/tfnotify/releases/download/v${VERSION}/tfnotify_linux_amd64.tar.gz
-        && sudo tar -xf tfnotify.tar.gz -C /usr/local/bin tfnotify
-
-    - name: Terraform Format
-      run: terraform fmt -check -diff -recursive | tfnotify fmt
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
     - name: Generate GitHub App token
       id: generate_token
       uses: tibdex/github-app-token@v1
