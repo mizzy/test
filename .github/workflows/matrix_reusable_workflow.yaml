@@ -8,6 +8,6 @@ jobs:
     strategy:
       matrix:
         target: [dev, stage, prod]
-    uses: .github/workflows/_reusable_workflow.yaml
+    uses: ./.github/workflows/_reusable_workflow.yaml
     with:
       wowking-directory: ${{ matrix.target }}
