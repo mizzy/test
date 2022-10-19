@@ -1,0 +1,13 @@
+name: Reusable workflow with matrix strategy
+
+on:
+  push:
+
+jobs:
+  ReuseableMatrixJobForDeployment:
+    strategy:
+      matrix:
+        target: [dev, stage, prod]
+    uses: .github/workflows/_reusable_workflow.yaml
+    with:
+      wowking-directory: ${{ matrix.target }}
