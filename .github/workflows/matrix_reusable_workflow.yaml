@@ -10,4 +10,4 @@ jobs:
         target: [dev, stage, prod]
     uses: ./.github/workflows/_reusable_workflow.yaml
     with:
-      wowking-directory: ${{ matrix.target }}
+      working-directory: ${{ matrix.target }}
