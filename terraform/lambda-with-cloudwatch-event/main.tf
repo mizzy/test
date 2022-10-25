@@ -22,15 +22,15 @@ data "aws_iam_policy_document" "coffee_chat_assume_role" {
 resource "aws_iam_policy" "coffee_chat_logging" {
   name = "coffee-chat-logging"
   policy = jsonencode({
-    "Version" : "2012-10-17",
-    "Statement" : [
+    Version = "2012-10-17"
+    Statement = [
       {
-        Action : [
+        Action = [
           "logs:CreateLogStream",
-          "logs:PutLogEvents"
-        ],
-        Effect : "Allow",
-        Resource : "arn:aws:logs:*:*:*"
+          "logs:PutLogEvents",
+        ]
+        Effect   = "Allow"
+        Resource = "arn:aws:logs:*:*:*"
       }
     ]
   })
