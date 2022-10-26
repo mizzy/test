@@ -48,7 +48,7 @@ data "archive_file" "coffee_chat" {
 }
 
 resource "aws_lambda_function" "coffee_chat" {
-  function_name    = "lambda-function"
+  function_name    = "coffee-chat"
   filename         = data.archive_file.coffee_chat.output_path
   role             = aws_iam_role.coffee_chat.arn
   source_code_hash = data.archive_file.coffee_chat.output_base64sha256
