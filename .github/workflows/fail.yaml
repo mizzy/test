@@ -10,5 +10,5 @@ jobs:
       run:
         shell: bash
     steps:
-      - run: exit 1
+      - run: exit 0
 
