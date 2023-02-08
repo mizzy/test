@@ -8,7 +8,9 @@
       "matchPackagePatterns": [
         "hashicorp/terraform"
       ],
-      "automerge": true
+      "automerge": true,
+      "automergeType": "pr",
+      "platformAutomerge": true
     }
   ]
 }
