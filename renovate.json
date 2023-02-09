@@ -5,9 +5,7 @@
   ],
   "packageRules": [
     {
-      "matchPackagePatterns": [
-        "hashicorp/terraform"
-      ],
+      "matchManagers": ["terraform", "terraform-version"],
       "automerge": true,
       "automergeType": "pr",
       "platformAutomerge": true
