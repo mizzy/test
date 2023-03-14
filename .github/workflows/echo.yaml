@@ -1,0 +1,14 @@
+name: echo
+
+on:
+  pull_request:
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - run: echo '${{ toJson(github) }}'
+
