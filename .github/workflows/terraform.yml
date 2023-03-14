@@ -41,5 +41,4 @@ jobs:
         terraform apply -auto-approve
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
-      with:
-        workind-dirctory: projects/bar
+      working-dirctory: projects/bar
