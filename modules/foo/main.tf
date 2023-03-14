@@ -4,7 +4,7 @@ data "google_storage_bucket" "foo" {
 
 
 data "archive_file" "archive" {
-  type = "zip"
+  type        = "zip"
   source_dir  = "${path.module}/../foo/source"
   output_path = "${path.module}/foo.zip"
 }
