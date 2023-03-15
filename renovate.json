@@ -3,6 +3,7 @@
   "extends": [
     "config:base"
   ],
+  "additionalBranchPrefix": "{{packageName}}-",
   "packageRules": [
     {
       "matchManagers": ["terraform", "terraform-version"],
