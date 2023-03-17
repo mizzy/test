@@ -35,4 +35,6 @@ jobs:
     - name: terraform output
       run: terraform init;terraform apply -auto-approve;terraform output
       working-directory: github
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
