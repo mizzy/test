@@ -33,6 +33,6 @@ jobs:
         && sudo tar -xf tfnotify.tar.gz -C /usr/local/bin tfnotify
 
     - name: terraform output
-      run: terraform init;terraform output
+      run: terraform init;terraform apply -auto-approve;terraform output
       working-directory: github
 
