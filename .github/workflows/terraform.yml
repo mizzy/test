@@ -1,5 +1,6 @@
 name: terraform
-on: push
+on:
+  pull_request:
 
 jobs:
   terraform:
@@ -31,7 +32,7 @@ jobs:
         https://github.com/mercari/tfnotify/releases/download/v${VERSION}/tfnotify_linux_amd64.tar.gz
         && sudo tar -xf tfnotify.tar.gz -C /usr/local/bin tfnotify
 
-    - name: Terraform Format
-      run: terraform fmt -check -diff -recursive | tfnotify fmt
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: terraform output
+      run: terraform output
+      working-directory: github
+
