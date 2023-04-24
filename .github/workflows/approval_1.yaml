@@ -3,11 +3,11 @@ name: approval 1
 on:
   workflow_run:
     workflows: ['approval 0']
-    branches: [approval]
-    types: [completed]
+    #branches: [approval]
+    #types: [completed]
 
 jobs:
-  deploy:
+  approve-1:
     environment:
       name: approval
 
