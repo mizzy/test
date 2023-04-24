@@ -3,7 +3,7 @@ name: approval 1
 on:
   workflow_run:
     workflows: ['approval 0']
-    branches: [approval]
+    branches: [master]
     types: [completed]
 
 jobs:
@@ -15,4 +15,4 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3.0.0
-      - run: echo '${{ toJSON(github.event.workflow_run) }}'
+      - run: echo '${{ github.event.workflow_run.head_branch }}'
