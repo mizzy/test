@@ -7,7 +7,7 @@ on:
     types: [completed]
 
 jobs:
-  deploy:
+  approval-1:
     environment:
       name: approval
 
