@@ -1,0 +1,16 @@
+name: approval 0
+
+on:
+  push:
+    branches: [approval]
+
+jobs:
+  deploy:
+    environment:
+      name: approval
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3.0.0
+      - run: echo approval 0
