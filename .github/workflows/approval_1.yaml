@@ -15,4 +15,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3.0.0
-      - run: echo '${{ github.event.workflow_run.head_branch }}'
+        with:
+          ref: ${{ github.event.workflow_run.head_branch }}
+      - run: echo hello
+
