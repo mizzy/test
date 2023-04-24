@@ -3,7 +3,7 @@ name: approval 1
 on:
   workflow_run:
     workflows: ['approval 0']
-    branches: [master]
+    branches: [approval]
     types: [completed]
 
 jobs:
