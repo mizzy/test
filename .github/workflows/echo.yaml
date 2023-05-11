@@ -10,5 +10,5 @@ jobs:
       run:
         shell: bash
     steps:
-      - run: env
+      - run: echo ${{ vars.SLACK_WEBHOOK_URL }}
 
