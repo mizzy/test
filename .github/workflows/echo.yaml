@@ -3,6 +3,9 @@ name: echo
 on:
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   echo:
     runs-on: ubuntu-latest
@@ -10,5 +13,7 @@ jobs:
       run:
         shell: bash
     steps:
-      - run: echo ${{ vars.SLACK_WEBHOOK_URL }}
+      - run: echo ${FOO}
+    env:
+      FOO: ${{ secrets.FOO }}
 
