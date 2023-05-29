@@ -5,7 +5,15 @@ on:
     branches: [approval]
 
 jobs:
-  deploy:
+  job0:
+    environment:
+      name: approval
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.5.2
+      - run: echo job0
+
+  job1:
     environment:
       name: approval
 
@@ -13,4 +21,4 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3.5.2
-      - run: echo approval 0
+      - run: echo job1
