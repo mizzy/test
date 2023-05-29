@@ -1,8 +1,7 @@
 name: approval 0
 
 on:
-  push:
-    branches: [approval]
+  pull_request:
 
 jobs:
   job0:
