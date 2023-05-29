@@ -16,3 +16,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: ls
+      - if: false
+        name: skip 1
+        run: ls
+      - name: skip 2
+        run: ls
