@@ -3,7 +3,7 @@ name: approval 0
 on:
   pull_request:
     branches: ['release/*']
-    types: [close]
+    types: [closed]
 
 jobs:
   job0:
