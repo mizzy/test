@@ -1,5 +1,5 @@
 name: terraform
-on: push
+on: pull_request
 
 jobs:
   terraform:
@@ -35,3 +35,11 @@ jobs:
       run: terraform fmt -check -diff -recursive | tfnotify fmt
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: terraform apply
+      run: |
+        terraform init
+        terraform apply -auto-approve
+      env:
+        GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+      working-directory: projects/bar
