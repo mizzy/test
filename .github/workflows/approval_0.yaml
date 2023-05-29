@@ -1,8 +1,9 @@
 name: approval 0
 
 on:
-  push:
-    branches: [master]
+  pull_request:
+    branches: ['release/*']
+    types: [close]
 
 jobs:
   job0:
