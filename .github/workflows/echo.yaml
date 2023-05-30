@@ -1,7 +1,9 @@
 name: echo
 
 on:
-  pull_request:
+  push:
+    tags:
+      - test
 
 permissions:
   id-token: write
