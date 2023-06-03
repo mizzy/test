@@ -5,11 +5,10 @@ on:
 
 jobs:
   skip:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash
     steps:
-      - run: exit 0
+      - run: echo ${{ toJSON(github.jobs) }}
 
