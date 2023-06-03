@@ -10,5 +10,5 @@ jobs:
       run:
         shell: bash
     steps:
-      - run: echo ${{ toJSON(github.jobs) }}
+      - run: echo ${{ toJSON(github) }}
 
