@@ -9,16 +9,12 @@ on:
 
 jobs:
   test:
-    environment: production
+    # environment: production
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ${{ inputs.working-directory }}
     steps:
       - uses: actions/checkout@v3
-      - run: env 
-      - if: false
-        name: skip 1
-        run: ls
-      - name: skip 2
-        run: ls
+      - run: echo ${{ github.jobs }} 
+
