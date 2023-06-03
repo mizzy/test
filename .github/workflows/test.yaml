@@ -5,7 +5,8 @@ on:
 
 jobs:
   test:
-    environment: approval
+    environment:
+      name: approval
     uses: ./.github/workflows/_reusable_workflow.yaml
     with:
       working-directory: ecspresso
