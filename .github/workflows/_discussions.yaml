@@ -1,0 +1,16 @@
+name: github discussions reusable workflow
+
+on:
+  workflow_call:
+    inputs:
+      channel_id:
+        required: true
+        type: string
+
+jobs:
+  discussion_commented:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Send GitHub Discussions Comments to Slack
+        run: |
+          echo ${{ github.event.discussion.title }}

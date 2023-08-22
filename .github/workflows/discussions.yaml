@@ -1,0 +1,12 @@
+name: github discussions
+
+on:
+  discussion_comment:
+    types: [created]
+
+jobs:
+  discussion_commented:
+    if: github.event.comment
+    uses: ./.github/workflows/_discussions.yaml
+    with:
+      channel_id: test
