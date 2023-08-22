@@ -10,7 +10,8 @@ on:
 jobs:
   discussion_commented:
     runs-on: ubuntu-20.04
+    if: github.event.comment
     steps:
       - name: Send GitHub Discussions Comments to Slack
         run: |
-          echo ${{ github.event.discussion.title }}
+          echo ${{ toJSON(github.event) }}
