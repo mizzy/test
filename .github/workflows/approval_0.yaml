@@ -10,7 +10,7 @@ jobs:
       name: approval
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.5.2
+      - uses: actions/checkout@v5.0.1
       - run: echo job0
 
   job1:
@@ -19,5 +19,5 @@ jobs:
       name: approval
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.5.2
+      - uses: actions/checkout@v5.0.1
       - run: echo job1
