@@ -1,0 +1,30 @@
+name: Check Command Availability
+
+on:
+  workflow_dispatch:
+    inputs:
+      command:
+        description: 'Command to check'
+        required: true
+        type: string
+
+jobs:
+  check-command:
+    runs-on: ubuntu-slim
+    steps:
+      - name: Check if command exists
+        run: |
+          echo "Checking for command: ${{ inputs.command }}"
+          echo "---"
+          if command -v "${{ inputs.command }}" &> /dev/null; then
+            echo "Command '${{ inputs.command }}' is available"
+            echo "---"
+            echo "Location:"
+            which "${{ inputs.command }}"
+            echo "---"
+            echo "Version (if available):"
+            "${{ inputs.command }}" --version 2>/dev/null || echo "Version info not available"
+          else
+            echo "Command '${{ inputs.command }}' is NOT available"
+            exit 1
+          fi
